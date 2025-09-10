@@ -1,0 +1,407 @@
+[
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_ marriedwomen'sproperty_6.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 9485
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_christianmarriage_3.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 57360
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_foreign_recruting_7.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 3398
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_majority_9.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 3621
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_marriage_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 14905
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_oaths_5.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 8127
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_savingbanks_4.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 9728
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1872_survey_8.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 59691
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1875_law_reports_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 1813
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1876_irrigation_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 69556
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1877_specific_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 82433
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1878_arms_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 32975
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1878_tresuretrove_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 13406
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1879_court_of_wards_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 68155
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1879_touts_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 9051
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1880_kazis_3.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 4345
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1880_religious_societies_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 6917
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1880_vaccination_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 27315
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1881_chittagong_hill_tracts_police_regulation_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 10044
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1881_municipal_taxation_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 4436
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1881_negotiable_instruments_4.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 102716
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1881_obstructions_in_fairway_3.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 6765
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1882_easements_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 63340
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1882_property_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 152353
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1882_trusts_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 81616
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1883_land_improvement_loan_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 10306
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1884_agriculturist's_loan_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 2879
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1884_explosive_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 25357
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1885_ferries_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 21106
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1885_telefraph_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 33977
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1886_birth_deaths_marriage_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 9760
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1887_civil_courst_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 32602
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1887_small_cause_courts_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 20061
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1887_suits_valuation_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 7451
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1889_metal_tokens_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 6219
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1889_private_fisheries_protection_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 3464
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1890_charitable_.endowments_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 12933
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1890_excise_malt_liquors_2.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 1782
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1890_guradians_and_ward_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 45309
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1890_railway_act_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 111260
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1893_partition_act_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 6136
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1894_prisions_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 41222
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1895_government_grants_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 1997
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1896_the protection_of_muslim_pilgrims_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 8023
+  },
+  {
+    "source": "D:\\Law-RAG\\data\\processed\\1897_general_clause_1.txt",
+    "category": "processed",
+    "file_type": "text",
+    "language": "en",
+    "embedding_model": "huggingface",
+    "embedding_dimension": 768,
+    "text_length": 50650
+  }
+]
