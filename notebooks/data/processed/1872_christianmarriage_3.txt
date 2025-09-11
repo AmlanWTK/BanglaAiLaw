@@ -27,6 +27,8 @@ PRELIMINARY
 
 It extends to the whole of Bangladesh and, so far only as regards Christian citizens of Bangladesh, °[* *
 
+*).
+
 2. [Repealed by the Repealing Act, 1938 (Act No. | of 1938), section 2 and Schedule.]
 
 3. In this Act, unless there is something repugnant in the subject or context,-
@@ -203,7 +205,7 @@ church where worship is generally held according to the forms of the Church of E
 
 unless there is no such church within five miles distance by the shortest road from such place, or
 
-4/32
+4132
 
 30/08/2025 The Christian Marriage Act, 1872
 
@@ -221,7 +223,7 @@ MARRIAGES SOLEMNIZED BY MINISTERS OF RELIGION LICENSED UNDER THIS ACT
 
 Notice of 12. Whenever a marriage is intended to be solemnized by a Minister of Religion licensed to solemnize
 intended
-: marriages under this Act-
+. marriages under this Act-
 marriage
 one of the persons intending marriage shall give notice in writing, according to the form contained in
 the first schedule hereto annexed, or to the like effect, to the Minister of Religion whom he or she
@@ -253,7 +255,7 @@ Sending copy of
 notice to
 Marriage
 Registrar when
-one party is a
+One party isa
 minor
 
 Procedure on
@@ -957,7 +959,7 @@ shall be delivered such certificate or certificates as aforesaid), and of two or
 besides the Marriage Registrar.
 And in some part of the ceremony each of the parties shall declare as follows, or to the like effect:-
 
-"| do solemnly declare that | Know not of any lawful impediment why I, A. B., may not be joined in
+"| do solemnly declare that | know not of any lawful impediment why I, A. B., may not be joined in
 
 matrimony to C. D."
 
@@ -1184,7 +1186,7 @@ authenticated extracts form his register-book of all entries made therein since 
 
 intervals.
 
-or * *|
+or * *]
 
 63. Every person licensed under this Act to grant certificates of marriage, and keeping a marriage-
 register-book under section 62, shall, at all reasonable times, allow search to be made in such book,
@@ -1249,7 +1251,7 @@ discretion of the Court, with fine.
 to be a person whose consent to the marriage is required by law, knowing or believing such
 representation to be false, or not having reason to believe it to be true, shall be deemed guilty of the
 
-offence described in section 205 of the “[Penal Code].
+offence described in section 205 of the [Penal Code].
 
 68. Whoever, not being authorized by section 5 of this Act to solemnize marriages, solemnizes or
 professes to solemnize in the absence of a Marriage Registrar of the district in which the ceremony
@@ -1606,9 +1608,9 @@ therein, without further proof of such register or certificate, or duplicate, or
 
 respectively, or of such copy.
 
-81. The Registrar General of Births, Deaths, and Marriages *°[* * *] shall, at the end of every quarter in
-each year, select, from the certificates of marriages forwarded to ‘“[Him], during such quarter, the
-certificates of the marriages of which the Government ‘[* * *] may desire that evidence shall be
+81. The Registrar General of Births, Deaths, and Marriages ‘°[* * *] shall, at the end of every quarter in
+each year, select, from the certificates of marriages forwarded to [Him], during such quarter, the
+certificates of the marriages of which the Government '[* * *] may desire that evidence shall be
 
 transmitted to England, and shall send the same certificates, signed by ‘®[Him] to the Government.
 
@@ -1673,7 +1675,7 @@ between subjects of the State which he represents and according to the laws of s
 
 either of the parties forbids him or her to enter into.
 
-1 Throughout this Act, except otherwise provided, the words "Bangladesh" and "Government" were substituted, for the words "Pakistan" and "Provincial Government” or
+1 Throughout this Act, except otherwise provided, the words "Bangladesh" and "Government" were substituted, for the words "Pakistan" and "Provincial Government" or
 
 bdlaws.minlaw.gov.bd/act-print-27.html
 
@@ -1687,7 +1689,7 @@ The Christian Marriage Act, 1872
 
 3 The words "to the Acceding States" omitted by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration) Act, 1973 (Act No. VIII of 1973)
 
-4 The words "inhabitants of Indo-Bangla Pakistan" were substituted, for the words "Natives of Indo-Pakistan" by section 3 and 2nd Schedule of the Bangladesh Laws
+4 The words "inhabitants of Indo-Bangla Pakistan" were substituted, for the words "Natives of Indo-Pakistan"” by section 3 and 2nd Schedule of the Bangladesh Laws
 (Revision And Declaration) Act, 1973 (Act No. VIII of 1973)
 
 5 The words and commas "so far as regards the territories under its administration, and the Central Government, so far as regards any Acceding State" were omitted by
@@ -1698,15 +1700,15 @@ Declaration) Act, 1973 (Act No. VIII of 1973)
 7 Paragraphs 6th, 7th and 8th of section 48 were omitted by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration) Act, 1973 (Act No. VIII of
 1973)
 
-8 The words "Bangla language" were substituted, for the words "Vernacular language in ordinary use in the district or State in which the marriage was solemnized” by
+8 The words "Bangla language" were substituted, for the words "Vernacular language in ordinary use in the district or State in which the marriage was solemnized"” by
 
-10 The words "Penal Code" were substituted, for the words "Pakistan Penal Code" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration),
+10 The words "Penal Code" were substituted, for the words "Pakistan Penal Code" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration)
 Act,_1973 (Act No. VIII of 1973)
 
 11 The words "Penal Code" were substituted, for the words "Pakistan Penal Code" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration)
 Act, 1973 (Act No. VIII of 1973)
 
-12 The words "Penal Code" were substituted, for the words "Pakistan Penal Code" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration),
+12 The words "Penal Code" were substituted, for the words "Pakistan Penal Code" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration)
 Act, 1973 (Act No. VIII of 1973)
 
 No. VIII of 1973)
@@ -1714,6 +1716,7 @@ No. VIII of 1973)
 15 The words "and the officers appointed under section 56" were omitted by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration) Act, 1973
 (Act No. VIII of 1973)
 
+16 The word "Him" was substituted, for the words "them respectively" by section 3 and 2nd Schedule of the Bangladesh Laws (Revision And Declaration) Act, 1973 (Act
 No. VIII of 1973)
 
 bdlaws.minlaw.gov.bd/act-print-27.html 31/32

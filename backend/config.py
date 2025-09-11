@@ -17,6 +17,11 @@ class Config:
     OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-ada-002")
     
+    # Ollama Configuration (Free local LLM)
+    USE_OLLAMA = os.getenv("USE_OLLAMA", "False").lower() == "true"
+    OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama2:7b")
+    OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    
     # HuggingFace Configuration (alternative to OpenAI)
     HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
     
@@ -75,11 +80,12 @@ class Config:
         """Validate required configuration"""
         required_vars = []
         
-        if not cls.OPENAI_API_KEY and not cls.HUGGINGFACE_API_KEY:
-            required_vars.append("Either OPENAI_API_KEY or HUGGINGFACE_API_KEY")
+        # Check if at least one LLM option is configured
+        if not cls.USE_OLLAMA and not cls.OPENAI_API_KEY and not cls.HUGGINGFACE_API_KEY:
+            required_vars.append("Either USE_OLLAMA=True, OPENAI_API_KEY or HUGGINGFACE_API_KEY")
         
         if required_vars:
-            raise ValueError(f"Missing required environment variables: {', '.join(required_vars)}")
+            raise ValueError(f"Missing required configuration: {', '.join(required_vars)}")
         
         return True
 
@@ -94,4 +100,6 @@ if __name__ == "__main__":
     print("PROCESSED_DATA_DIR:", config.PROCESSED_DATA_DIR)
     print("EMBEDDINGS_DIR:", config.EMBEDDINGS_DIR)
     print("VECTOR_STORE_PATH:", config.VECTOR_STORE_PATH)
+    print("USE_OLLAMA:", config.USE_OLLAMA)
+    print("OLLAMA_MODEL:", config.OLLAMA_MODEL if config.USE_OLLAMA else "Not configured")
     print("OPENAI_API_KEY loaded:", "Yes" if config.OPENAI_API_KEY else "No")

@@ -1,12 +1,11 @@
-
 from typing import List, Dict, Any, Optional, Tuple
 from langchain.schema import Document
-from langchain_community.llms import OpenAI
-from langchain_openai import ChatOpenAI
+from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate, ChatPromptTemplate
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.memory import ConversationBufferWindowMemory
-from langchain_community.callbacks.manager import get_openai_callback
+from langchain.callbacks import get_openai_callback
 import logging
 import json
 from datetime import datetime
@@ -26,43 +25,54 @@ class BanglaLegalRAGPipeline:
     Complete RAG pipeline for Bangladeshi legal documents
     Handles document processing, retrieval, and response generation
     """
-
+    
     def __init__(self):
         self.llm = None
         self.memory = None
         self.qa_chain = None
         self.conversation_chain = None
-
+        
         # Initialize LLM
         self._initialize_llm()
-
+        
         # Initialize memory for conversations
         self._initialize_memory()
-
+        
         # Initialize chains
         self._initialize_chains()
-
+        
         # Conversation history
         self.conversation_history = []
-
+        
         # Legal response templates
         self.response_templates = self._load_response_templates()
-
+    
     def _initialize_llm(self):
         """Initialize the language model"""
         try:
-            if config.OPENAI_API_KEY:
+            if config.USE_OLLAMA:
+                # Use Ollama (Free local model)
+                from langchain_community.llms import Ollama
+                self.llm = Ollama(
+                    model=config.OLLAMA_MODEL,
+                    base_url=config.OLLAMA_BASE_URL,
+                    temperature=0.3
+                )
+                logger.info(f"Initialized Ollama LLM: {config.OLLAMA_MODEL}")
+                
+            elif config.OPENAI_API_KEY:
+                # Use OpenAI (Paid)
                 self.llm = ChatOpenAI(
                     model_name=config.OPENAI_MODEL,
-                    temperature=0.3,  # Low temperature for factual legal responses
+                    temperature=0.3,
                     openai_api_key=config.OPENAI_API_KEY
                 )
                 logger.info(f"Initialized OpenAI LLM: {config.OPENAI_MODEL}")
+                
             else:
-                # Fallback to HuggingFace (would need additional setup)
-                logger.warning("No OpenAI API key found. Please configure OpenAI for best results.")
-                raise ValueError("OpenAI API key required")
-
+                # Fallback error
+                raise ValueError("No LLM configured. Set USE_OLLAMA=True or provide OPENAI_API_KEY")
+                
         except Exception as e:
             logger.error(f"Error initializing LLM: {str(e)}")
             raise
@@ -89,7 +99,7 @@ class BanglaLegalRAGPipeline:
                     "prompt": self._get_qa_prompt()
                 }
             )
-
+            
             # Conversational Chain for multi-turn conversations
             self.conversation_chain = ConversationalRetrievalChain.from_llm(
                 llm=self.llm,
@@ -100,9 +110,9 @@ class BanglaLegalRAGPipeline:
                     "prompt": self._get_conversation_prompt()
                 }
             )
-
+            
             logger.info("Initialized RAG chains successfully")
-
+            
         except Exception as e:
             logger.error(f"Error initializing chains: {str(e)}")
             raise
@@ -165,6 +175,7 @@ Legal context:
 {context}
 
 Current question: {question}
+
 Please provide a comprehensive answer based on the legal context and conversation history."""
 
         return ChatPromptTemplate.from_messages([
@@ -187,47 +198,47 @@ Please provide a comprehensive answer based on the legal context and conversatio
         Process legal documents and create vector store
         """
         logger.info("Starting document processing pipeline...")
-
+        
         try:
             # Check if vector store already exists
             if vector_store.faiss_index is not None and not force_reprocess:
                 logger.info("Vector store already exists. Use force_reprocess=True to recreate.")
                 return True
-
+            
             # Step 1: Load documents
             logger.info("Loading legal documents...")
             documents = document_loader.load_all_documents()
-
+            
             if not documents:
                 logger.error("No documents loaded. Please check your data directory.")
                 return False
-
+            
             logger.info(f"Loaded {len(documents)} documents")
-
+            
             # Step 2: Split documents into chunks
             logger.info("Splitting documents into chunks...")
             chunks = text_splitter.split_documents(documents)
-
+            
             if not chunks:
                 logger.error("No chunks created from documents.")
                 return False
-
+            
             logger.info(f"Created {len(chunks)} chunks")
-
+            
             # Step 3: Create vector store
             logger.info("Creating vector store with embeddings...")
             vector_store.create_index(chunks, force_recreate=force_reprocess)
-
+            
             logger.info("Document processing completed successfully!")
             return True
-
+            
         except Exception as e:
             logger.error(f"Error in document processing: {str(e)}")
             return False
 
     def query(
-        self, 
-        question: str, 
+        self,
+        question: str,
         retrieval_strategy: str = "hybrid",
         use_conversation: bool = False
     ) -> Dict[str, Any]:
@@ -242,47 +253,72 @@ Please provide a comprehensive answer based on the legal context and conversatio
             }
 
         logger.info(f"Processing query: {question[:100]}...")
-
+        
         try:
-            with get_openai_callback() as cb:
+            # Use different callback based on LLM type
+            if config.USE_OLLAMA:
+                # For Ollama, we don't track costs/tokens the same way
                 if use_conversation and self.conversation_chain:
-                    # Use conversational chain
                     result = self.conversation_chain({
                         "question": question
                     })
                 else:
-                    # Use QA chain
                     result = self.qa_chain({
                         "query": question
                     })
-
-                # Prepare response
+                
+                # Prepare response without token tracking
                 response = {
                     "answer": result.get("answer", ""),
                     "source_documents": result.get("source_documents", []),
                     "metadata": {
-                        "tokens_used": cb.total_tokens,
-                        "cost": cb.total_cost,
+                        "tokens_used": 0,  # Ollama doesn't provide token counts
+                        "cost": 0.0,  # Free!
                         "retrieval_strategy": retrieval_strategy,
                         "timestamp": datetime.now().isoformat(),
-                        "language": self._detect_language(question)
+                        "language": self._detect_language(question),
+                        "llm_type": "ollama"
                     }
                 }
+            else:
+                # For OpenAI, use token tracking
+                with get_openai_callback() as cb:
+                    if use_conversation and self.conversation_chain:
+                        result = self.conversation_chain({
+                            "question": question
+                        })
+                    else:
+                        result = self.qa_chain({
+                            "query": question
+                        })
+                    
+                    response = {
+                        "answer": result.get("answer", ""),
+                        "source_documents": result.get("source_documents", []),
+                        "metadata": {
+                            "tokens_used": cb.total_tokens,
+                            "cost": cb.total_cost,
+                            "retrieval_strategy": retrieval_strategy,
+                            "timestamp": datetime.now().isoformat(),
+                            "language": self._detect_language(question),
+                            "llm_type": "openai"
+                        }
+                    }
 
-                # Add to conversation history
-                self.conversation_history.append({
-                    "question": question,
-                    "answer": response["answer"],
-                    "timestamp": datetime.now().isoformat(),
-                    "sources_count": len(response["source_documents"])
-                })
+            # Add to conversation history
+            self.conversation_history.append({
+                "question": question,
+                "answer": response["answer"],
+                "timestamp": datetime.now().isoformat(),
+                "sources_count": len(response["source_documents"])
+            })
 
-                # Keep only last 10 conversations
-                if len(self.conversation_history) > 10:
-                    self.conversation_history = self.conversation_history[-10:]
+            # Keep only last 10 conversations
+            if len(self.conversation_history) > 10:
+                self.conversation_history = self.conversation_history[-10:]
 
-                logger.info(f"Query processed successfully. Used {cb.total_tokens} tokens.")
-                return response
+            logger.info(f"Query processed successfully using {'Ollama' if config.USE_OLLAMA else 'OpenAI'}")
+            return response
 
         except Exception as e:
             logger.error(f"Error processing query: {str(e)}")
@@ -306,7 +342,7 @@ Please provide a comprehensive answer based on the legal context and conversatio
         """Detect language of the text"""
         bengali_chars = sum(1 for c in text if '\u0980' <= c <= '\u09FF')
         english_chars = sum(1 for c in text if c.isascii() and c.isalpha())
-
+        
         if bengali_chars > english_chars:
             return "bn"
         else:
@@ -315,13 +351,14 @@ Please provide a comprehensive answer based on the legal context and conversatio
     def get_pipeline_stats(self) -> Dict[str, Any]:
         """Get pipeline statistics"""
         stats = {
-            "llm_model": config.OPENAI_MODEL if config.OPENAI_API_KEY else "None",
+            "llm_model": config.OLLAMA_MODEL if config.USE_OLLAMA else (config.OPENAI_MODEL if config.OPENAI_API_KEY else "None"),
+            "llm_type": "ollama" if config.USE_OLLAMA else "openai",
             "total_conversations": len(self.conversation_history),
             "memory_size": len(self.memory.chat_memory.messages) if self.memory else 0,
             "vector_store_stats": vector_store.get_index_stats(),
             "embedding_stats": embedding_service.get_embedding_stats()
         }
-
+        
         return stats
 
     def export_conversation_history(self, filename: str = None) -> str:
@@ -329,19 +366,19 @@ Please provide a comprehensive answer based on the legal context and conversatio
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"conversation_history_{timestamp}.json"
-
+        
         filepath = config.DATA_DIR / "exports" / filename
         filepath.parent.mkdir(parents=True, exist_ok=True)
-
+        
         export_data = {
             "export_timestamp": datetime.now().isoformat(),
             "total_conversations": len(self.conversation_history),
             "conversations": self.conversation_history
         }
-
+        
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(export_data, f, ensure_ascii=False, indent=2)
-
+        
         logger.info(f"Conversation history exported to {filepath}")
         return str(filepath)
 
@@ -349,10 +386,8 @@ Please provide a comprehensive answer based on the legal context and conversatio
 def query_constitution(question: str) -> Dict[str, Any]:
     """Query specifically about the constitution"""
     pipeline = BanglaLegalRAGPipeline()
-
     # Enhance question with constitutional context
     enhanced_question = f"বাংলাদেশের সংবিধান সম্পর্কে: {question}"
-
     return pipeline.query(
         enhanced_question,
         retrieval_strategy="semantic"
@@ -361,9 +396,7 @@ def query_constitution(question: str) -> Dict[str, Any]:
 def query_fundamental_rights(question: str) -> Dict[str, Any]:
     """Query about fundamental rights"""
     pipeline = BanglaLegalRAGPipeline()
-
     enhanced_question = f"মৌলিক অধিকার সম্পর্কে: {question}"
-
     return pipeline.query(
         enhanced_question,
         retrieval_strategy="hybrid"
@@ -372,9 +405,7 @@ def query_fundamental_rights(question: str) -> Dict[str, Any]:
 def query_government_structure(question: str) -> Dict[str, Any]:
     """Query about government structure"""
     pipeline = BanglaLegalRAGPipeline()
-
     enhanced_question = f"সরকার কাঠামো সম্পর্কে: {question}"
-
     return pipeline.query(
         enhanced_question,
         retrieval_strategy="hybrid"
